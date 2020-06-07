@@ -26,4 +26,22 @@ public class PessoaDAO {
 		}
 	}
 	
+	public void remover(int id) {
+		try {
+			Connection connection = ConnectionUtil.getInstance().getConnection();
+		
+			String sql = "DELETE FROM PESSOA WHERE id_pessoa = ?";
+			
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setInt(1, id);
+			statement.execute();
+			
+			statement.close();
+			connection.close();
+		} catch(Exception exception) {
+			exception.printStackTrace();
+		}
+		
+	}
+	
 }
