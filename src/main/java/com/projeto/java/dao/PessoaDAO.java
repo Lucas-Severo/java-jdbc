@@ -76,4 +76,24 @@ public class PessoaDAO {
 		return listaPessoas;
 	}
 	
+	public void atualizar(PessoaDTO pessoaDTO) {
+		try {
+			Connection connection = ConnectionUtil.getInstance().getConnection();
+			
+			String sql = "UPDATE PESSOA SET nome = ? WHERE id_pessoa = ?";
+			
+			PreparedStatement statement = connection.prepareStatement(sql);
+			
+			statement.setString(1, pessoaDTO.getNome());
+			statement.setInt(2, pessoaDTO.getId_pessoa());
+			
+			statement.execute();
+			
+			statement.close();
+			connection.close();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		}
+	}
+	
 }
