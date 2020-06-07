@@ -16,7 +16,7 @@ Crie uma tabela neste banco de dados:
 USE test;
 
 CREATE TABLE pessoa (
-  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  id_pessoa INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   nome VARCHAR(100) NOT NULL
 );
 ```
